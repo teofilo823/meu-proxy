@@ -2,11 +2,11 @@ const http = require('http');
 const net = require('net');
 const url = require('url');
 
-console.log("🚀 Proxy iniciando...");
+console.log("🚀 Proxy iniciando no Render...");
 
 const proxy = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Proxy Render está online!');
+  res.end('✅ Proxy está online!');
 });
 
 proxy.on('connect', (req, clientSocket, head) => {
@@ -21,5 +21,5 @@ proxy.on('connect', (req, clientSocket, head) => {
 
 const PORT = process.env.PORT || 8080;
 proxy.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Proxy rodando em http://0.0.0.0:${PORT}`);
+  console.log(`✅ Proxy rodando na porta ${PORT}`);
 });
